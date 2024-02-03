@@ -39,8 +39,8 @@ jobs:
         with:
           images: ${{ secrets.REGISTRY }}/${{ env.IMAGE_NAME }}
       - name: Build and push nginx
-        uses: docker/build-push-action@v4
+        uses: docker/build-push-action@v5.1.0
         with:
-          context: ./apps/nginx
+          file: dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
